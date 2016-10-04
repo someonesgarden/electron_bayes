@@ -1,5 +1,5 @@
 {
-  "name": "texproofer",
+  "name": "electron_bayes",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -7,7 +7,6 @@
     "start": "cross-env NODE_ENV=development ./node_modules/.bin/electron ./"
   },
   "author": "",
-  "license": "ISC",
   "devDependencies": {
     "cross-env": "^1.0.7",
     "electron-prebuilt": "^1.1.0"
