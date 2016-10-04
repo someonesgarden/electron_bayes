@@ -34,10 +34,10 @@ var vm = new Vue({
                 vm.tokens=[];
                 for(var i=0;i<words.length;i++){
                     var word=words[i].surface_form;
-                   // if (!word.match(/[.。、=＝！￥"#%&$・\/\n\s\t?]/)) {
+                    if (!word.match(/[.。、=＝！￥"「」#%&$・\/\n\s\t?]/)) {
                         //console.log(words[i].surface_form);
                         vm.tokens.push(words[i].surface_form);
-                    //}
+                    }
                 }
                 //console.log(vm.tokens);
                 return vm.tokens;
@@ -64,7 +64,12 @@ vm.$watch("rightText", function (value) {
 });
 
 vm.$watch("yosokuText", function(value){
-    yosoku(vm.yosokuText);
+
+    vm.yosokuResult = " ------- ";
+    if(vm.yosokuText.trim()!="") {
+        console.log("yosokuText="+vm.yosokuText);
+        yosoku(vm.yosokuText);
+    }
 });
 
 
@@ -90,6 +95,7 @@ gakusyu_left_btn.onclick = function(){
     vm.showmode = "study";
     console.log("leftKey="+leftKey.value);
     console.log("key="+vm.leftKey);
+    //console.log("text="+vm.leftText);
     classifier.learn(vm.leftText, leftKey.value);
 
 };
@@ -105,7 +111,7 @@ var classifier = bayes({
     tokenizer: function (text) {
         //console.log("text=" + text);
         var res = vm.tokenize(text);
-        //console.log(res);
+        console.log(res);
         return res;
     }
 });
