@@ -1,0 +1,67 @@
+html{
+    box-sizing: border-box;
+}
+
+/* CLEAR FIX */
+.clear{
+    clear:both;
+}
+
+.clearfix::after{
+    content:'';
+    display:block;
+    clear:both;
+}
+
+*,*:before, *:after{
+    box-sizing:inherit;
+}
+
+.container-flex{
+    display:flex;
+}
+
+/*  fIX LAYOUT */
+
+.fix40 {
+    flex-grow: 0;
+    flex-basis: 40px;
+    flex-shrink: 0;
+}
+
+
+.fix60 {
+    flex-grow: 0;
+    flex-basis: 60px;
+    flex-shrink: 0;
+}
+
+.fix90 {
+    flex-grow: 0;
+    flex-basis: 90px;
+    flex-shrink: 0;
+}
+
+.fix100 {
+    flex-grow: 0;
+    flex-basis: 100px;
+    flex-shrink: 0;
+}
+
+.fix130 {
+    flex-grow: 0;
+    flex-basis: 130px;
+    flex-shrink: 0;
+}
+
+.fix220 {
+    flex-grow: 0;
+    flex-basis: 220px;
+    flex-shrink: 0;
+}
+
+.fix280 {
+    flex-grow: 0;
+    flex-basis: 280px;
+    flex-shrink: 0;
+}

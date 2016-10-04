@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <script type="text/javascript" src="node_modules/vue/dist/vue.min.js"></script>
+    <script type="text/javascript" src="node_modules/kuromoji/dist/browser/kuromoji.js"></script>
+    <script src="lib/debug.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/flexbox.css">
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/window.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="lib/modernizr-custom.js" type="text/javascript"></script>
+  <title>TexProofer</title>
+</head>
+
+<body>
+<div id="bayes_yosoku" class="wrapper">
+
+    <header class="window-bar header container-flex">
+        <div class="item item_center color5 fix90 clearfix border-right">
+            <ul class="window-actions">
+                <li class="window-action-wrapper">
+                    <a href="#" class="window-action window-action-minimize" title="Minimize"><span>Minimize</span></a>
+                </li>
+                <li class="window-action-wrapper window-action-wrapper-maximize">
+                    <a href="#" class="window-action window-action-maximize" title="Maximize"><span>Maximize</span></a>
+                </li>
+                <li class="window-action-wrapper window-action-wrapper-restore">
+                    <a href="#" class="window-action window-action-restore" title="Restore"><span>Restore</span></a>
+                </li>
+                <li class="window-action-wrapper window-action-wrapper-close">
+                    <a href="#" class="window-action window-action-close" title="Close"><span>Close</span></a></li>
+            </ul>
+        </div>
+        <div class="item item_center color_con2 fix130 clearfix border-right">
+            <span class="glyphicon glyphicon-user"></span>
+        </div>
+        <div class="item item_center color_con2" style="flex-grow:8;">
+            <strong><span class="glyphicon glyphicon-lamp"></span>&nbsp;Naive Bayes </strong><span
+                class="version">ver.0.1</span>
+        </div>
+
+        <div class="item item_center color_con0 fix60 clearfix border-left">
+            <img class="toplogo" src="img/sog_round_logo.png" style="width:26px;height:26px;"/>
+        </div>
+    </header>
+
+    <div class="menu container-flex clearfix">
+        <span class="item item_center color1 border-right"><a href="#" id="digest">--</a></span>
+        <span class="item item_center"><a href="#" id="furigana">--</a></span>
+        <span class="item item_center"><a href="#" id="wordcount">--</a></span>
+        <span class="item item_center"><a href="#" id="proof">--</a></span>
+        <span class="item item_center"><a href="#" id="export_csv">--</a></span>
+    </div>
+
+    <div id="description">
+        このアプリはNaive Bayesのアルゴリズムを利用して、二つの異なったカテゴリーについての情報を与えることで学習を進めます。
+        その結果から、精度の高い比較予測ができます。
+    </div>
+
+    <div class="container container-flex clearfix">
+
+        <div class="leftarea item border-right">
+            <textarea v-model="leftText" autofocus="true" placeholder="# Type text option1 to compare with option2..."></textarea>
+            <input id="leftKey" v-model="leftKey" type="text" placeholder="# 学習のキー...">
+            <button id="gakusyu_left_btn">学習</button>
+        </div>
+
+        <div class="rightarea item">
+            <textarea v-model="rightText" autofocus="true" placeholder="# Type text option2 to compare with option1..."></textarea>
+            <input id="rightKey" v-model="rightKey" type="text" placeholder="# 学習のキー...">
+            <button id="gakusyu_right_btn">学習</button>
+        </div>
+    </div>
+
+    <div id="result">
+        <span style="width:68px;font-size:0.8rem;font-weight:bold;">[ 予測結果 ]</span>
+        <div v-model="yosokuResult" class="answer" style="width:180px;">----</div>
+        <textarea v-model="yosokuText" style="width:100%" rows="4" placeholder="# 予測させる文章をタイプ..."></textarea>
+    </div>
+
+    <div class="footer color_con2">
+        <div class="item item_center fix40 clearfix">
+        </div>
+
+        <div style="text-align:center;width:100%;">
+            <span class="glyphicon glyphicon-copyright-mark"></span> &nbsp;
+            Someonesgarden,LLP, 2016
+        </div>
+        <div class="item item_center fix40 clearfix">
+        </div>
+    </div>
+
+</div>
+<script src="node_modules/encoding-japanese/encoding.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/window.js"></script>
+<script src="tokenizer.js"></script>
+</body>
+</html>

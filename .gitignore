@@ -1,0 +1,18 @@
+### WebStorm ###
+.idea
+
+### Node ###
+# Logs
+app/logs
+app/*.log
+app/npm-debug.log*
+
+### Bower ###
+app/bower_components
+app/.bower-cache
+app/.bower-registry
+app/.bower-tmp
+
+# Dependency directories
+app/node_modules
+app/jspm_packages
